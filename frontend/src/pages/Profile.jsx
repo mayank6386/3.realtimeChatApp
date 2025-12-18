@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { serverUrl } from '../main';
+import.meta.env.VITE_API_URL
 import { setUserData } from '../redux/userSlice';
 function Profile() {
     let {userData}=useSelector(state=>state.user)

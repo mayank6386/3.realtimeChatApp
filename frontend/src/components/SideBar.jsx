@@ -4,7 +4,7 @@ import dp from "../assets/dp.webp"
 import { IoIosSearch } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import { BiLogOutCircle } from "react-icons/bi";
-import { serverUrl } from '../main';
+import.meta.env.VITE_API_URL
 import axios from 'axios';
 import { setOtherUsers, setSearchData, setSelectedUser, setUserData } from '../redux/userSlice';
 import { useNavigate } from 'react-router-dom';

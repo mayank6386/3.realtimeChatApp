@@ -8,7 +8,7 @@ import Home from './pages/Home'
 import Profile from './pages/Profile'
 import getOtherUsers from './customHooks/getOtherUsers'
 import {io} from "socket.io-client"
-import { serverUrl } from './main'
+import.meta.env.VITE_API_URL
 import { setOnlineUsers, setSocket } from './redux/userSlice'
 
 function App() {

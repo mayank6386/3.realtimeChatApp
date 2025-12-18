@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect } from "react"
-import { serverUrl } from "../main"
+import.meta.env.VITE_API_URL
 import { useDispatch, useSelector } from "react-redux"
 import { setOtherUsers,} from "../redux/userSlice.js"
 
