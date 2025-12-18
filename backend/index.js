@@ -11,16 +11,33 @@ import { app, server } from "./socket/socket.js"
 
 const port=process.env.PORT || 5000
 
-
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://realtimechatmsg.vercel.app"
-    ],
-    credentials: true
+    origin: function (origin, callback) {
+      const allowedOrigins = [
+        "http://localhost:5173",
+        "https://realtimechatmsg.vercel.app",
+        "https://3-realtime-chat-app-git-main-mayank-mishras-projects-1f990e11.vercel.app"
+      ]
+
+      // allow requests with no origin (Postman, mobile apps)
+      if (!origin) return callback(null, true)
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true)
+      } else {
+        callback(new Error("Not allowed by CORS"))
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
   })
 )
+
+// 🔴 VERY IMPORTANT: handle preflight
+app.options("*", cors())
+
 
 app.use(express.json())
 app.use(cookieParser())
