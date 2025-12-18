@@ -37,7 +37,7 @@ const handleSendMessage=async (e)=>{
     if(backendImage){
       formData.append("image",backendImage)
     }
-    let result=await axios.post(`${serverUrl}/api/message/send/${selectedUser._id}`,formData,{withCredentials:true})
+    let result=await axios.post(`${import.meta.env.VITE_API_URL}/api/message/send/${selectedUser._id}`,formData,{withCredentials:true})
     dispatch(setMessages([...messages,result.data]))
     setInput("")
     setFrontendImage(null)

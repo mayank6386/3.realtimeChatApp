@@ -19,7 +19,7 @@ let dispatch=useDispatch()
         e.preventDefault()
         setLoading(true)
         try {
-            let result =await axios.post(`${serverUrl}/api/auth/signup`,{
+            let result =await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/signup`,{
 userName,email,password
             },{withCredentials:true})
            dispatch(setUserData(result.data))

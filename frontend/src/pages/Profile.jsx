@@ -33,7 +33,7 @@ try {
     if(backendImage){
         formData.append("image",backendImage) 
     }
-    let result=await axios.put(`${serverUrl}/api/user/profile`,formData,{withCredentials:true})
+    let result=await axios.put(`${import.meta.env.VITE_API_URL}/api/user/profile`,formData,{withCredentials:true})
     setSaving(false)
     dispatch(setUserData(result.data))
     navigate("/")

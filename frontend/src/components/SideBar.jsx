@@ -16,7 +16,7 @@ let dispatch=useDispatch()
 let navigate=useNavigate()
     const handleLogOut=async ()=>{
         try {
-            let result =await axios.get(`${serverUrl}/api/auth/logout`,{withCredentials:true})
+            let result =await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/logout`,{withCredentials:true})
 dispatch(setUserData(null))
 dispatch(setOtherUsers(null))
 navigate("/login")
@@ -27,7 +27,7 @@ navigate("/login")
 
     const handlesearch=async ()=>{
         try {
-            let result =await axios.get(`${serverUrl}/api/user/search?query=${input}`,{withCredentials:true})
+            let result =await axios.get(`${import.meta.env.VITE_API_URL}/api/user/search?query=${input}`,{withCredentials:true})
             dispatch(setSearchData(result.data))
            
         }

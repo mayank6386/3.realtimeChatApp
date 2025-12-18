@@ -19,7 +19,7 @@ function App() {
 
   useEffect(()=>{
     if(userData){
-      const socketio=io(`${serverUrl}`,{
+      const socketio=io(`${import.meta.env.VITE_API_URL}`,{
         query:{
           userId:userData?._id
         }
